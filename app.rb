@@ -7,17 +7,20 @@ class App < Sinatra::Base
 
   get '/news/rss', :provides => 'atom' do
     rss = RssFile.where(code: 'news').first
-    erb :rss, locals: {feed: rss.feed}
+    feed = rss.nil? ? '' : rss.feed
+    erb :rss, locals: {feed: feed}
   end
 
   get '/kwkm/rss', :provides => 'atom' do
     rss = RssFile.where(code: 'kwkm').first
-    erb :rss, locals: {feed: rss.feed}
+    feed = rss.nil? ? '' : rss.feed
+    erb :rss, locals: {feed: feed}
   end
 
   get '/momorikobuta/rss', :provides => 'atom' do
     rss = RssFile.where(code: 'momorikobuta').first
-    erb :rss, locals: {feed: rss.feed}
+    feed = rss.nil? ? '' : rss.feed
+    erb :rss, locals: {feed: feed}
   end
 
 end
