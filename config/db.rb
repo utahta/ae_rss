@@ -1,4 +1,5 @@
 require 'active_record'
+use ActiveRecord::ConnectionAdapters::ConnectionManagement
 
 ActiveRecord::Base.establish_connection(
     encoding: ENV['DATABASE_ENCODING'],
