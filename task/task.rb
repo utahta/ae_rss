@@ -9,21 +9,18 @@ password = ENV['AE_RSS_PASSWD']
 
 puts 'Fetching news...'
 rss = AeRssMaker.news(id, password)
-RssFile.find_or_create_by(code:'news') do |rssfile|
-  rssfile.feed = rss.to_s
-  rssfile.save
-end
+rssfile = RssFile.find_or_create_by(code:'news')
+rssfile.feed = rss.to_s
+rssfile.save
 
 puts 'Fetching kwkm...'
 rss = AeRssMaker.kwkm(id, password)
-RssFile.find_or_create_by(code:'kwkm') do |rssfile|
-  rssfile.feed = rss.to_s
-  rssfile.save
-end
+rssfile = RssFile.find_or_create_by(code:'kwkm')
+rssfile.feed = rss.to_s
+rssfile.save
 
 puts 'Fetching momorikobuta...'
 rss = AeRssMaker.momorikobuta(id, password)
-RssFile.find_or_create_by(code:'momorikobuta') do |rssfile|
-  rssfile.feed = rss.to_s
-  rssfile.save
-end
+rssfile = RssFile.find_or_create_by(code:'momorikobuta')
+rssfile.feed = rss.to_s
+rssfile.save
